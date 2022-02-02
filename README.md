@@ -1,1 +1,1 @@
-s This is the README file for the Holberton low-level programming projects repository
+This is the README file for the Holberton low-level programming projects repository
