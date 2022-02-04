@@ -7,14 +7,13 @@
  */
 int main(void)
 {
-	char numarray[20] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	int i;
 
-	i = 0;
-	while (i < 10)
+	i = 48;
+	while (i < 58)
 	{
-		putchar(numarray[i]);
-		if (i < 9)
+		putchar(i);
+		if (i < 57)
 		{
 			putchar(44);
 			putchar(32);
