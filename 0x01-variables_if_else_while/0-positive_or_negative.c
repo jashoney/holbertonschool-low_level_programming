@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* more headers goes there */
-/* betty style doc for function main goes there */
-
+/**
+ * main - this is the main function
+ *
+ * Description: prints whether a random number is zero, negative or positive
+ * Return: returns zero
+ */
 int main(void)
 {
 	int n;
