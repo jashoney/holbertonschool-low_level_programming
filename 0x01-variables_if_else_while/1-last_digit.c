@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* betty style doc for function main goes here */
-
+/**
+ * main - main function short description is here
+ *
+ * Return: returns zero
+ */
 int main(void)
 {
 	int n;
