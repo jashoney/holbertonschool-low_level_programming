@@ -16,10 +16,8 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	if (n == 0)
 		answer = 0;
-		else if (n > 0)
-			answer = n - (n / 10) * 10;
-		else
-			answer = (n - (n / 10) * 10) * -1;
+	else
+		answer = n - (n / 10) * 10;
 	if (answer == 0)
 		printf("Last digit of %d is 0 and is 0\n", n);
 		else if (answer < 6)
