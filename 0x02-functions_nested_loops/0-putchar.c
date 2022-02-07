@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - check the code
@@ -7,8 +7,13 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
+	char sentence[9] = "_putchar\n";
+	int count = 0;
+
+	while (count <= 8)
+	{
+		_putchar(sentence[count]);
+		count++;
+	}
 	return (0);
 }
-
-
