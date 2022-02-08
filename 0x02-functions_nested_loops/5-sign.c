@@ -2,7 +2,7 @@
 
 /**
  * print_sign - returns 1 if n is positive, 0 if zero, or -1 if negative
- * n: the number of input
+ * @n: the input number
  * Return: as above
  */
 int print_sign(int n)
