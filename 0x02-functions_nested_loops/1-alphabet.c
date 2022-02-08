@@ -1,21 +1,18 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - check the code
  *
- * Return - always 0
+ * Return: always return void
  */
-int main(void)
+void print_alphabet(void)
 {
-	int letternum = 'a';
+	int lettercount = 'a';
 
-	while (letternum <= 'z')
+	while (lettercount <= 'z')
 	{
-		putchar(letternum);
-		letternum++;
+		_putchar(lettercount);
+		lettercount++;
 	}
-	putchar('\n');
-	return (0);
+	_putchar('\n');
 }
-
-
