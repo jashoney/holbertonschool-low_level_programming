@@ -9,17 +9,17 @@
 char *_strcpy(char *dest, char *src)
 {
 	char strchar;
-	int count = 0, stringcount = 0;
+	int count = 0, stringlength = 0;
 
 	strchar = *src;
 	if (strchar != 0)
 	{
 		while (strchar != 0)
 		{
-			stringcount++;
-			strchar = *(src + stringcount);
+			stringlength++;
+			strchar = *(src + stringlength);
 		}
-		while (count <= stringcount + 1)
+		while (count <= stringlength + 1)
 		{
 			*(dest + count) = *(src + count);
 			count++;
