@@ -1,15 +1,14 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * puts2 - prints a string in reverse
- * str: is a pointer to an string of characters
+ * @str: is a pointer to an string of characters
  * Return: void
  */
 void puts2(char *str)
 {
 	char stringchar;
-	int stringlength = 1, i; 
+	int stringlength = 1, i;
 
 	stringchar = *str;
 	while (stringchar != 0)

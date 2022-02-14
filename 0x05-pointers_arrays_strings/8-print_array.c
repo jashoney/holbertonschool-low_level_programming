@@ -3,13 +3,13 @@
 
 /**
  * print_array - prints a string in reverse
- * a: is a pointer to an array of integers
- * n: number or elements in the array
+ * @a: is a pointer to an array of integers
+ * @n: number or elements in the array
  * Return: void
  */
 void print_array(int *a, int n)
 {
-	int i = 0, arrayint; 
+	int i = 0, arrayint;
 
 	while (i < n)
 	{

@@ -2,7 +2,7 @@
 
 /**
  * print_rev - prints a string in reverse
- * s: is a pointer to an string of characters
+ * @s: is a pointer to an string of characters
  * Return: void
  */
 void print_rev(char *s)
@@ -18,11 +18,11 @@ void print_rev(char *s)
 	}
 	reverse = stringlength - 1;
 	while (reverse >= 0)
-		{
-			stringchar = *(s + reverse);
-			_putchar(stringchar);
-			reverse--;
-		}
+	{
+		stringchar = *(s + reverse);
+		_putchar(stringchar);
+		reverse--;
+	}
 	_putchar('\n');
 }
 

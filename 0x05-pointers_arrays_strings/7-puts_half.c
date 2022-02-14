@@ -1,15 +1,14 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * puts_half - prints a string in reverse
- * str: is a pointer to an string of characters
+ * @str: is a pointer to an string of characters
  * Return: void
  */
 void puts_half(char *str)
 {
 	char stringchar;
-	int stringlength = 1, i, n; 
+	int stringlength = 1, i, n;
 
 	stringchar = *str;
 	while (stringchar != 0)
