@@ -7,12 +7,15 @@
  */
 int _strlen(char *s)
 {
-	int stringlength;
+	int stringlength = 0;
+	char stringchar;
 
-	if (*s == 0)
-		stringlength = 0;
-	while (*(s + stringlength) != 0)
+	stringchar = *s;
+	while (stringchar != 0)
+	{
 		stringlength++;
+		stringchar = *(s + stringlength);
+	}
 	return (stringlength);
 }
 
