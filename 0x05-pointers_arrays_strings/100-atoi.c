@@ -24,7 +24,7 @@ int strlength(char *src)
 int strcut(char *src, int length)
 {
 	int finalnumber = 0, signcount = 0, loop = 0;
-	unsigned number = 0;
+	unsigned int number = 0;
 
 	while (loop <= length)
 	{
