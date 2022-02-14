@@ -14,13 +14,12 @@ char *_strcpy(char *dest, char *src)
 	strchar = *src;
 	if (strchar != 0)
 	{
-		stringcount = 1;
 		while (strchar != 0)
 		{
-			strchar = *(src + stringcount);
 			stringcount++;
+			strchar = *(src + stringcount);
 		}
-		while (count <= stringcount)
+		while (count <= stringcount + 1)
 		{
 			*(dest + count) = *(src + count);
 			count++;
