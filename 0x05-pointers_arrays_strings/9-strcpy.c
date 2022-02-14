@@ -1,30 +1,35 @@
 #include "main.h"
 
 /**
- * _strcpy- copy a string
+ * strlength - finds the length of a string
  * @src: is a pointer to an string of characters
- * @dest: where that string is copied to
  * Return: void
+ */
+int strlength(char *src)
+{
+	int length = 0;
+
+	while (src[length] != 0)
+		length++;
+	return (length);
+}
+
+/**
+ * _strcpy - copies a string at *src to *dest
+ * @src: points to a string
+ * @dest: where the string is to be copied to
+ * Return: the pointer dest
  */
 char *_strcpy(char *dest, char *src)
 {
-	char strchar;
-	int count = 0, stringlength = 0;
+	int stringlength, count;
 
-	strchar = *src;
-	if (strchar != 0)
+	stringlength = strlength(src);
+	count = 0;
+	while (count <= stringlength)
 	{
-		while (strchar != 0)
-		{
-			stringlength++;
-			strchar = *(src + stringlength);
-		}
-		while (count <= stringlength + 1)
-		{
-			*(dest + count) = *(src + count);
-			count++;
-		}
+		dest[count] = src[count];
+		count++;
 	}
 	return (dest);
 }
-
