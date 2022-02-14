@@ -17,7 +17,10 @@ void puts_half(char *str)
 		stringchar = *(str + stringlength);
 	}
 	i = 0;
-	n = (stringlength - 1) / 2;
+	if (stringlength % 2 == 0)
+		n = stringlength / 2;
+	else
+		n = (stringlength - 1) / 2;
 	while (i < stringlength)
 	{
 		if (i >= n)
