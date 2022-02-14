@@ -23,7 +23,8 @@ int strlength(char *src)
 
 int strcut(char *src, int length)
 {
-	int number = 0, signcount = 0, loop = 0;
+	int finalnumber = 0, signcount = 0, loop = 0;
+	unsigned number = 0;
 
 	while (loop <= length)
 	{
@@ -46,8 +47,11 @@ int strcut(char *src, int length)
 		loop++;
 	}
 	if (signcount < 0)
-		number = number * -1;
-	return (number);
+		signcount = -1;
+	else
+		signcount = 1;
+	finalnumber = number * signcount;
+	return (finalnumber);
 }
 /**
  * _atoi - input string at *src and convert it to integer
