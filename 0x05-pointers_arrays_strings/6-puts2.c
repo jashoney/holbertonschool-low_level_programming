@@ -8,13 +8,13 @@
 void puts2(char *str)
 {
 	char stringchar;
-	int stringlength = 1, i;
+	int stringlength = 0, i;
 
 	stringchar = *str;
 	while (stringchar != 0)
 	{
-		stringchar = *(str + stringlength);
 		stringlength++;
+		stringchar = *(str + stringlength);
 	}
 	i = 0;
 	while (i < stringlength)
