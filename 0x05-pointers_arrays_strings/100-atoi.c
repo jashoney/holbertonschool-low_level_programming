@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * strlength - finds the length of a string
@@ -31,7 +30,6 @@ int strcut(char *src, int length)
 		if (src[loop] >= '0' && src[loop] <= '9')
 		{
 			number = number * 10 + (src[loop] - '0');
-			printf("number is currently : %d\n", number);
 		}
 		else if (src[loop] == '-' || src[loop] == '+')
 		{
@@ -61,7 +59,6 @@ int _atoi(char *src)
 	int stringlength = 0, newint = 0;
 
 	stringlength = strlength(src);
-	printf("stringlength is: %d\n", stringlength);
 	if (stringlength > 0)
 		newint = strcut(src, stringlength);
 	return (newint);
