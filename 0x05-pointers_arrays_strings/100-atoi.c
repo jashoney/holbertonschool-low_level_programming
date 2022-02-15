@@ -32,7 +32,7 @@ int strcut(char *src, int length)
 		{
 			number = number * 10 + (src[loop] - '0');
 		}
-		else if (src[loop] == '-') 
+		else if (src[loop] == '-')
 			sign = sign * -1;
 		else
 		{
