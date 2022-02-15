@@ -23,7 +23,7 @@ int strlength(char *src)
 
 int strcut(char *src, int length)
 {
-	int finalnumber = 0, signcount = 0, loop = 0;
+	int finalnumber = 0, sign = 1, loop = 0;
 	unsigned int number = 0;
 
 	while (loop <= length)
@@ -32,13 +32,8 @@ int strcut(char *src, int length)
 		{
 			number = number * 10 + (src[loop] - '0');
 		}
-		else if (src[loop] == '-' || src[loop] == '+')
-		{
-			if (src[loop] == '-')
-				signcount--;
-			else
-				signcount++;
-		}
+		else if (src[loop] == '-') 
+			sign = sign * -1;
 		else
 		{
 			if (number > 0)
@@ -46,11 +41,7 @@ int strcut(char *src, int length)
 		}
 		loop++;
 	}
-	if (signcount < 0)
-		signcount = -1;
-	else
-		signcount = 1;
-	finalnumber = number * signcount;
+	finalnumber = number * sign;
 	return (finalnumber);
 }
 /**
