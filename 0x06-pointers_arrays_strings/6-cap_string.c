@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strlen: returns the length of a string
+ * _strlen - returns the length of a string
  * @s: pointer to the string
  * Return: the length
  */
@@ -29,7 +29,6 @@ void _convert(char *s)
 
 /**
  * is_separator - compares char to a list
- *                changes a tab to a space
  * @s: pointer to a char
  * Return: 1 if in the list, 0 if not
  */
@@ -42,13 +41,7 @@ int is_separator(char *s)
 	while (i < 13)
 	{
 		if (*s == separators[i])
-		{
-/*
- * 			if (*s == 9)
- * 			*s = 32;
- */ 	
 			return (1);
-		}
 		i++;
 	}
 	return (0);
@@ -60,11 +53,6 @@ int is_separator(char *s)
  */
 char *cap_string(char *ptr)
 {
-/*
- * first move through the string looking for separators of words
- * the next char after a separator is sent to convert to be capitilised
- * stop at the null char
- */
 	int i = 0, test = 0, len = 0;
 
 	len = _strlen(ptr);
