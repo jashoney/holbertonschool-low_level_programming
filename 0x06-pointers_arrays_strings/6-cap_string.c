@@ -37,7 +37,7 @@ void _convert(char *s)
 int is_separator(char *s)
 {
 	int i = 0;
-	int separators[13] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 124};
+	int separators[13] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
 	while (i < 13)
 	{
