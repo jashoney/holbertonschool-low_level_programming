@@ -23,7 +23,11 @@ int is_separator(char *s)
 	while (i < 13)
 	{
 		if (*s == separators[i])
+		{
+			if (*s == 9)
+				*s = 32;
 			return (1);
+		}
 		i++;
 	}
 	return (0);
