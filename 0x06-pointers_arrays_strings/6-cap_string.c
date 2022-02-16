@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _strlen: returns the length of a string
+ * @s: pointer to the string
+ * Return: the length
+ */
+
 int _strlen(char *s)
 {
 	int len = 0;
@@ -9,16 +15,29 @@ int _strlen(char *s)
 	return (len);
 }
 
+/**
+ * _convert - convert lowercase char to uppercase char
+ * @s: pointer to the char byte
+ * Return: is void
+ */
+
 void _convert(char *s)
 {
-	if (s[0] >= 'a' && s[0] <= 'z')
-              s[0] = s[0] - 32;
+	if (*s >= 'a' && *s <= 'z')
+		*s = *s - 32;
 }
+
+/**
+ * is_separator - compares char to a list
+ *                changes a tab to a space
+ * @s: pointer to a char
+ * Return: 1 if in the list, 0 if not
+ */
 
 int is_separator(char *s)
 {
 	int i = 0;
-	int separators[13] = {32,9,10,44,59,46,33,63,34,40,41,123,124};
+	int separators[13] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 124};
 
 	while (i < 13)
 	{
@@ -34,7 +53,7 @@ int is_separator(char *s)
 }
 /**
  * cap_string - converts first letter in a word to uppercase
- * @ptr - is the pointer to our string
+ * @ptr: is the pointer to our string
  * Return: the ptr to the string
  */
 char *cap_string(char *ptr)
@@ -44,7 +63,7 @@ char *cap_string(char *ptr)
  * the next char after a separator is sent to convert to be capitilised
  * stop at the null char
  */
- 	int i = 0, test = 0, len = 0;
+	int i = 0, test = 0, len = 0;
 
 	len = _strlen(ptr);
 	while (i < len)
