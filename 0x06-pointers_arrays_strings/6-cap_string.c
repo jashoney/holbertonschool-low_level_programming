@@ -43,8 +43,10 @@ int is_separator(char *s)
 	{
 		if (*s == separators[i])
 		{
-			if (*s == 9)
-				*s = 32;
+/*
+ * 			if (*s == 9)
+ * 			*s = 32;
+ */ 	
 			return (1);
 		}
 		i++;
