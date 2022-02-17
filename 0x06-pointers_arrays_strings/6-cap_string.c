@@ -56,6 +56,7 @@ char *cap_string(char *ptr)
 	int i = 0, test = 0, len = 0;
 
 	len = _strlen(ptr);
+	_convert(&ptr[i]);
 	while (i < len)
 	{
 		if (test == 1)
