@@ -4,7 +4,7 @@
  * @number: the number to count digits of
  * Return: the number of digits
  */
-int find_number_of_digits(int number)
+int find_number_of_digits(unsigned int number)
 {
 	int digits = 0;
 
@@ -24,9 +24,10 @@ int find_number_of_digits(int number)
  * @digits: how many digits it has
  * Return: the first digit of number
  */
-int find_first(int number, int digits)
+int find_first(unsigned int number, int digits)
 {
-	int testforazero = 1, i = 1;
+	unsigned int testforazero = 1;
+	int i = 1;
 
 	while (i < digits)
 	{
@@ -49,7 +50,7 @@ int find_first(int number, int digits)
  * Return: the new number
  */
 
-int cut_number(int number, int count)
+int cut_number(unsigned int number, int count)
 {
 	int modulus = 1;
 
@@ -70,6 +71,7 @@ int cut_number(int number, int count)
 void print_number(int n)
 {
 	int digits = 0, current;
+	unsigned int number;
 
 	if (n != 0)
 	{
@@ -78,14 +80,16 @@ void print_number(int n)
 			_putchar('-');
 			n = n * -1;
 		}
-		digits = find_number_of_digits(n);
+		number = n;
+		digits = find_number_of_digits(number);
 		while (digits > 1)
 		{
-			current = find_first(n, digits);
+			current = find_first(number, digits);
 			_putchar(current + '0');
-			n = cut_number(n, digits);
+			number = cut_number(number, digits);
 			digits--;
 		}
+		n = number;
 		_putchar(n + '0');
 	}
 	else
