@@ -1,20 +1,75 @@
 #include "main.h"
+/**
+ * find_number_of_digits - does what it says
+ * @number: the number to count digits of
+ * Return: the number of digits
+ */
+int find_number_of_digits(int number)
+{
+	int digits = 0;
+
+	while (number >= 10)
+	{
+		if (number >= 10)
+			number = number / 10;
+		digits++;
+	}
+	digits++;
+	return (digits);
+}
+
+/**
+ * find_first - finds the first digit of a number
+ * @number: the number in question
+ * @digits: how many digits it has
+ * Return: the first digit of number
+ */
+int find_first(int number, int digits)
+{
+	int testforazero = 1, i = 1;
+
+	while (i < digits)
+	{
+		testforazero = testforazero * 10;
+		i++;
+	}
+	if (number < testforazero)
+		number = 0;
+	else
+		while (number > 9)
+		{
+			number =  number / 10;
+		}
+	return (number);
+}
+/**
+ * cut_number - divides an integer and returns the new number
+ * @number: the initial number
+ * @count: how many digits the number has
+ * Return: the new number
+ */
+
+int cut_number(int number, int count)
+{
+	int modulus = 1;
+
+	while (count > 1)
+	{
+		modulus = modulus * 10;
+		count--;
+	}
+	number = (number % modulus);
+	return (number);
+}
 
 /**
  * print_number - prints an integer using _putchar
  * @n: is the integer
  * Return: is void
- *
- *
- * if negative print the sign first, then convert to positive
- * take the incoming number and place each digit in an array
- * count the digits as you do it
- * then print the array in reverse
  */
 void print_number(int n)
 {
-	char array[21] = "00000000000000000000";
-	int i = 0, digits = 0, d;
+	int digits = 0, current;
 
 	if (n != 0)
 	{
@@ -23,25 +78,15 @@ void print_number(int n)
 			_putchar('-');
 			n = n * -1;
 		}
-		while (n > 0)
+		digits = find_number_of_digits(n);
+		while (digits > 1)
 		{
-			d = n - (n / 10) * 10;
-			array[digits] = d + '0';
-			digits++;
-			if (n < 10)
-			{
-				array[digits] = d + '0';
-				n = 0;
-			}
-			else
-				n = n / 10;
+			current = find_first(n, digits);
+			_putchar(current + '0');
+			n = cut_number(n, digits);
+			digits--;
 		}
-		i = digits;
-		while (i > 0)
-		{
-			i--;
-			_putchar(array[i]);
-		}
+		_putchar(n + '0');
 	}
 	else
 		_putchar(n + '0');
