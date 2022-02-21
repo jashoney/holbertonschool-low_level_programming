@@ -9,7 +9,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	unsigned int td = 0, bu = 0;
+	int td = 0, bu = 0;
 	int row = 0, column, revcolumn, rowproduct;
 
 	while (row < size)
