@@ -9,7 +9,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int td = 0, bu = 0;
+	unsigned int tb = 0, bt = 0;
 	int row = 0, column, revcolumn, rowproduct;
 
 	while (row < size)
@@ -17,11 +17,11 @@ void print_diagsums(int *a, int size)
 		column = row;
 		revcolumn = size - 1 - row;
 		rowproduct = row * size;
-		td = td + *(a + rowproduct + column);
-		bu = bu + *(a + rowproduct + revcolumn);
+		tb = tb + *(a + rowproduct + column);
+		bt = bt + *(a + rowproduct + revcolumn);
 		row++;
 	}
-	printf("%u, %u\n", td, bu);
+	printf("%u, %u\n", tb, bt);
 }
 
 
