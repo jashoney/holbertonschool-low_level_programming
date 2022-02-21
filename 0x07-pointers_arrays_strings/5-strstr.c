@@ -9,7 +9,7 @@
 
 int is_in_string(char *dest, char *src)
 {
-	int j = 0, lenofdest = 0, match = 0;
+	unsigned int j = 0, lenofdest = 0, match = 0;
 
 	while (dest[j] != '\0')
 	{
@@ -42,7 +42,8 @@ int is_in_string(char *dest, char *src)
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i = 0, test = 0;
+	unsigned int i = 0; 
+	int test = 0;
 
 	while (haystack[i] != '\0')
 	{
