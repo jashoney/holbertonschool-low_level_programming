@@ -19,7 +19,7 @@ int is_in_string(char *dest, char *src)
 	j = 0;
 	while (src[j] != '\0')
 	{
-		if (dest[j] != '0')
+		if (dest[j] != '\0')
 		{
 			if (src[j] == dest[j])
 				match++;
