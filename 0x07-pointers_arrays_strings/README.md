@@ -10,3 +10,5 @@ There are 8 mandatory tasks in this project as follows:
 -	5. Write a function that locates a substring
 -	6. Write a function that prints the chessboard
 -	7. Write a function that prints the sum of the two diagonals of a square matrix of integers
+	extra work
+-	8. Write a function that sets the value of a pointer to a char
