@@ -21,7 +21,7 @@ void print_diagsums(int *a, int size)
 		bt = bt + *(a + rowproduct + revcolumn);
 		row++;
 	}
-	printf("%u, %u\n", tb, bt);
+	printf("%d, %d\n", tb, bt);
 }
 
 
