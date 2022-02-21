@@ -42,16 +42,19 @@ int is_in_string(char *dest, char *src)
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i = 0; 
+	int i = 0;
 	int test = 0;
 
-	while (haystack[i] != '\0')
-	{
-		if (haystack[i] == needle[0])
-			test = is_in_string(needle, &haystack[i]);
-		if (test == 1)
-			return (&haystack[i]);
-		i++;
-	}
+	if (*needle != '\0')
+		while (haystack[i] != '\0')
+		{
+			if (haystack[i] == needle[0])
+			{
+				test = is_in_string(needle, &haystack[i]);
+				if (test == 1)
+					return (&haystack[i]);
+			}
+			i++;
+		}
 	return (0);
 }
