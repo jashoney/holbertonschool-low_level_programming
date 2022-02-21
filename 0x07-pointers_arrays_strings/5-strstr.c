@@ -9,7 +9,7 @@
 
 int is_in_string(char *dest, char *src)
 {
-	int j = 0, lenofdest = 0, match = 0;
+	unsigned int j = 0, lenofdest = 0, match = 0;
 
 	while (dest[j] != '\0')
 	{
@@ -42,10 +42,11 @@ int is_in_string(char *dest, char *src)
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i = 0;
+	unsigned int i = 0;
 	int test = 0;
 
 	if (*needle != '\0')
+	{
 		while (haystack[i] != '\0')
 		{
 			if (haystack[i] == needle[0])
@@ -56,5 +57,8 @@ char *_strstr(char *haystack, char *needle)
 			}
 			i++;
 		}
-	return (0);
+		if (test == 0)
+			return (0);
+	}
+	return (haystack);
 }
