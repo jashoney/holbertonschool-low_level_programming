@@ -10,7 +10,12 @@ char *last_char_in_string(char *src)
 		return (last_char_in_string(src + 1));
 	return (src);
 }
-
+/**
+ * check_function - tests the opposing chars in a string
+ * @src: ptr to the start of the string
+ * @dest: ptr to the end char in the string
+ * Return: 1 if a plaindrome, 0 if not
+ */
 int check_function(char *src, char *dest)
 {
 	if (*src != *dest)
@@ -20,9 +25,9 @@ int check_function(char *src, char *dest)
 	return (check_function(src + 1, dest - 1));
 }
 /**
- * is_palindrome
- * s:
- * Return:
+ * is_palindrome - tests if a string is a palindrome
+ * @s: a ptr to the string
+ * Return: 1 if a plaindrome, 0 if not
  */
 int is_palindrome(char *s)
 {
