@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * test_function -  tests n recursively find whether it is prime
+ * test_function -  tests n to find a natural sqrt
  * @n: the number to be tested
  * @test: the test variable
- * Return: 0 if not n is a prime, 1 if n is a prime
+ * Return: the natural sqrt, or -1 if none found
  */
 int test_function(int test, int n)
 {
@@ -31,7 +31,5 @@ int _sqrt_recursion(int n)
 	if (n == 1)
 		return (1);
 
-	if (n > 2)
-		return (test_function(1, n));
-	return (-1);
+	return (test_function(1, n));
 }
