@@ -28,29 +28,20 @@ char *str_concat(char *s1, char *s2)
 		while (s2[s2size] != '\0')
 			s2size++;
 	}
-/* we want a NULL char at end of the string dest */
 	if (s1size > 0)
 		dest = malloc(1 + (s1size + s2size) * sizeof(s1[0]));
 	else
 		dest = malloc(1 + (s1size + s2size) * sizeof(s2[0]));
 	if (dest == NULL)
 		return (NULL);
-	i = 0;
-	while (i < s1size)
-	{
+	for (i = 0; i < s1size; i++)
 		dest[i] = s1[i];
-		i++;
-	}
-	i = 0;
 	if (s2size == 0)
 		dest[s1size + 1] = '\0';
 	else
 	{
-		while (i <= s2size)
-		{
+		for (i = 0; i <= s2size; i++)
 			dest[i + s1size] = s2[i];
-			i++;
-		}
 	}
 	return (dest);
 }
