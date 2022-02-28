@@ -17,12 +17,13 @@ char *_strdup(char *str)
 	while (str[size] != '\0')
 		size++;
 
-	dest = malloc(size * sizeof(str[0]));
+/*we want the NULL char at end of the string */
+	dest = malloc(1 + size * sizeof(str[0]));
 
 	if (dest == NULL)
 		return (NULL);
 
-	while (i < size)
+	while (i <= size)
 	{
 		dest[i] = str[i];
 		i++;
