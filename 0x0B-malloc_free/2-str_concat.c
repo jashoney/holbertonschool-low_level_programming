@@ -38,10 +38,15 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	}
 	i = 0;
-	while (i <= s2size)
+	if (s2size == 0)
+		dest[s1size + 1] = '\0';
+	else
 	{
-		dest[i + s1size] = s2[i];
-		i++;
+		while (i <= s2size)
+		{
+			dest[i + s1size] = s2[i];
+			i++;
+		}
 	}
 	return (dest);
 }
