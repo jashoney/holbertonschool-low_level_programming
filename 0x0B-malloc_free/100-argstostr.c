@@ -54,7 +54,7 @@ char *str_concat(char *s1, char *s2)
  */
 char *argstostr(int ac, char **av)
 {
-	int i = 1;
+	int i = 0;
 	char *newstring = NULL;
 
 	if (ac == 0)
