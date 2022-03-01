@@ -9,13 +9,12 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, s1size = 0, s2size = 0;
-	char charsize, *dest;
+	int i, s1size = 0, s2size = 0, size = 0; 
+	char *dest;
 
 	if (s1 == NULL && s2 == NULL)
 	{
-		dest = malloc(1 * sizeof(charsize));
-		dest[0] = '\0';
+		dest = NULL;
 		return (dest);
 	}
 	if (s1 != NULL)
@@ -28,12 +27,16 @@ char *str_concat(char *s1, char *s2)
 		while (s2[s2size] != '\0')
 			s2size++;
 	}
+	size = s1size + s2size;
 	if (s1size > 0)
-		dest = malloc(1 + (s1size + s2size) * sizeof(s1[0]));
+		dest = malloc(1 + size * sizeof(char));
 	else
-		dest = malloc(1 + (s1size + s2size) * sizeof(s2[0]));
+		dest = malloc(1 + size * sizeof(char));
 	if (dest == NULL)
+	{
+		free(dest);	
 		return (NULL);
+	}
 	for (i = 0; i < s1size; i++)
 		dest[i] = s1[i];
 	if (s2size == 0)
@@ -57,9 +60,7 @@ char *argstostr(int ac, char **av)
 	int i = 0;
 	char *newstring = NULL;
 
-	if (ac == 0)
-		return (NULL);
-	if (av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 	while (i < ac)
 	{
@@ -67,5 +68,8 @@ char *argstostr(int ac, char **av)
 		newstring = str_concat(newstring, "\n");
 		i++;
 	}
+	i = 0;
+	while (newstring[i] != '\0')
+		i++;
 	return (newstring);
-}
+}	
