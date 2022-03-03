@@ -32,7 +32,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	copy = ptr;
 	if (new_size > old_size)
 	{
-		while (i <= old_size)
+		while (i < old_size)
 		{
 			write[i] = copy[i];
 			i++;
@@ -40,7 +40,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	else
 	{
-		while (i <= new_size)
+		while (i < new_size)
 		{
 			write[i] = copy[i];
 			i++;
