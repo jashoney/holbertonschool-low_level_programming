@@ -4,26 +4,48 @@
 /**
  * _calloc - allocates memory for an array
  * @nmemb: the width of the array
- * @size: size of the bytes of nmemb
+ * @size: size, in bytes, of nmemb elements
  * Return: a ptr to the allocated memory, 98 on fail
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
 	unsigned int i = 0;
+	char *pchar;
+	int *pint;
+	long *plong;
+	void *p;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-
-	ptr = malloc(size * nmemb);
-	if (ptr == NULL)
+	p = malloc(size * nmemb);
+	if (p == NULL)
 		return (NULL);
-
-	while (i < nmemb)
+	if (size == 1)
 	{
-		ptr[i] = 0;
-		i++;
+		pchar = p;
+		while (i < nmemb)
+		{
+			pchar[i] = 0;
+			i++;
+		}
 	}
-
-	return (ptr);
+	if (size == 4)
+	{
+		pint = p;
+		while (i < nmemb)
+		{
+			pint[i] = 0;
+			i++;
+		}
+	}
+	if (size == 8)
+	{
+		plong = p;
+		while (i < nmemb)
+		{
+			plong[i] = 0;
+			i++;
+		}
+	}
+	return (p);
 }
