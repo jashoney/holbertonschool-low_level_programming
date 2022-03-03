@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
-/*
+/**
  * malloc_checked - allocates memory
  * @b: bytes to allocate
  * Return: a ptr to the allocated memory, 98 on fail
