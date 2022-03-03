@@ -9,43 +9,22 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
+	void *ptr;
+	char *ptr;
 	unsigned int i = 0;
-	char *pchar;
-	int *pint;
-	long *plong;
-	void *p;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	p = malloc(size * nmemb);
-	if (p == NULL)
+
+	ptr = malloc(size * nmemb);
+	if (ptr == NULL)
 		return (NULL);
-	if (size == 1)
+
+	while (i < nmemb)
 	{
-		pchar = p;
-		while (i < nmemb)
-		{
-			pchar[i] = 0;
-			i++;
-		}
+		ptr[i] = 0;
+		i++;
 	}
-	if (size == 4)
-	{
-		pint = p;
-		while (i < nmemb)
-		{
-			pint[i] = 0;
-			i++;
-		}
-	}
-	if (size == 8)
-	{
-		plong = p;
-		while (i < nmemb)
-		{
-			plong[i] = 0;
-			i++;
-		}
-	}
-	return (p);
+
+	return (ptr);
 }
