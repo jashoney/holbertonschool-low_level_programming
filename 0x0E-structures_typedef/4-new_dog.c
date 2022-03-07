@@ -2,32 +2,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * _strdup - copies a string
- * @str: pointer to the string
- * Return: dest or NULL
+ * _strdup - copies a string from src to dest
+ * @dest: dest string ptr
+ * @src: source string ptr
+ * Return: a ptr dest to the copied string or NULL
  */
 
-char *_strdup(char *str)
+char *_strdup(char *dest, char *src)
 {
-	char *dest;
-	int i = 0, size = 0;
+	int i = 0;
 
-	if (str == NULL)
-		return (NULL);
-
-	while (str[size] != '\0')
-		size++;
-
-	dest = malloc(1 + size * sizeof(str[0]));
-
-	if (dest == NULL)
-		return (NULL);
-
-	while (i <= size)
+	while (src[i] != '\0')
 	{
-		dest[i] = str[i];
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
 
 	return (dest);
 }
@@ -41,12 +31,30 @@ char *_strdup(char *str)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int size = 0;
 	dog_t *newdog = malloc(sizeof(dog_t));
 
 	if (newdog == NULL)
 		return (NULL);
-	newdog->name = _strdup(name);
 	newdog->age = age;
-	newdog->owner = _strdup(owner);
+	while (name[size] != '\0')
+		size++;
+	newdog->name = malloc(size + 1);
+	if (newdog->name == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
+	newdog->name = _strdup(newdog->name, name);
+	size = 0;
+	while (owner[size] != '\0')
+		size++;
+	newdog->owner = malloc(size + 1);
+	if (newdog->owner == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
+	newdog->owner = _strdup(newdog->owner, owner);
 	return (newdog);
 }
