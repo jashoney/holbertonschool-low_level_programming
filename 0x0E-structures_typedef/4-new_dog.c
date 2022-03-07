@@ -9,27 +9,27 @@
 
 char *_strdup(char *str)
 {
-        char *dest;
-        int i = 0, size = 0;
+	char *dest;
+	int i = 0, size = 0;
 
-        if (str == NULL)
-                return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-        while (str[size] != '\0')
-                size++;
+	while (str[size] != '\0')
+		size++;
 
-        dest = malloc(1 + size * sizeof(str[0]));
+	dest = malloc(1 + size * sizeof(str[0]));
 
-        if (dest == NULL)
-                return (NULL);
+	if (dest == NULL)
+		return (NULL);
 
-        while (i <= size)
-        {
-                dest[i] = str[i];
-                i++;
-        }
+	while (i <= size)
+	{
+		dest[i] = str[i];
+		i++;
+	}
 
-        return (dest);
+	return (dest);
 }
 
 /**
