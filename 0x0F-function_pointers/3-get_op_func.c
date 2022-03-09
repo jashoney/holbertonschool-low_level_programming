@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 /**
- * get_op_func - calls the required function which performs an op to 2 ints
- * @s: a ptr the required function
- * Return: 0 if S != operator, or the result of the function called
+ * get_op_func - uses a type op_t to identify which operator to use
+ * @s: the operator string
+ * Return: 0 if s != operator, or a ptr to the function to be used
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -20,7 +20,7 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	if (s == NULL)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < 5)
 	{
