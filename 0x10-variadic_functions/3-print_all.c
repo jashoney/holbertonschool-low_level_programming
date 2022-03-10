@@ -12,7 +12,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	unsigned int i = 0;
-	char *separator = "";
+	char *separator = "", *string;
 
 	if (format != NULL)
 	{
@@ -31,7 +31,11 @@ void print_all(const char * const format, ...)
 					break;
 				case 's':
 					printf("%s", separator);
-					printf("%s", va_arg(args, char *));
+					string = va_arg(args, char *);
+					if (string == NULL)
+						printf("(nil)");
+					else
+						printf("%s", string);
 					break;
 				case 'f':
 					printf("%s", separator);
