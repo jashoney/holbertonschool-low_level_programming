@@ -25,7 +25,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("%s", current_string);
 		if (separator != NULL && (i < n - 1))
 			printf("%s", separator);
-		
 	}
 	va_end(my_strings);
 	putchar('\n');
