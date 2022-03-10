@@ -10,17 +10,19 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list my_ints;
-	unsigned int i = 0;
-	int sum = 0;
+	unsigned int i = 0, sum = 0;
 
 	if (n == 0)
 		return (0);
+
 	va_start(my_ints, n);
+
 	while (i < n)
 	{
-		sum = sum + va_arg(my_ints, int);
+		sum = sum + va_arg(my_ints, unsigned int);
 		i++;
 	}
+
 	va_end(my_ints);
 	return (sum);
 }
