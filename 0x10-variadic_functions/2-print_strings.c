@@ -22,14 +22,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (current_string == NULL)
 			printf("(nil)");
 		else
-		{
-			if (i == 0)
-				printf("%s", current_string);
-			else if (separator == NULL)
-				printf(" %s", current_string);
-			else
-				printf("%c %s", *separator, current_string);
-		}
+			printf("%s", current_string);
+		if (separator != NULL && (i < n - 1))
+			printf("%s", separator);
+		
 	}
 	va_end(my_strings);
 	putchar('\n');
