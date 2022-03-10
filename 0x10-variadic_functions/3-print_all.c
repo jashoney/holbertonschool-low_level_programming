@@ -14,9 +14,9 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0;
 	char *separator = "", *string;
 
-	va_start(args, format);
 	if (format == NULL)
 		return;
+	va_start(args, format);
 	while (format[i] != '\0')
 	{
 		switch (format[i])
@@ -44,5 +44,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	va_end(args);
-	putchar('\n');
+	pitchar('\n');
 }
