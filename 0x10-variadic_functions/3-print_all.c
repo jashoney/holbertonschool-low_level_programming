@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <string.h>
 /**
- * print_all - prints anything
+ * print_all - prints chars, ints strings and floats
  * @format: each char in format provides the type of its arg
  * Return: the sum of the args
  */
@@ -33,9 +33,11 @@ void print_all(const char * const format, ...)
 					printf("%s", separator);
 					string = va_arg(args, char *);
 					if (string == NULL)
+					{
 						printf("(nil)");
-					else
-						printf("%s", string);
+						break;
+					}
+					printf("%s", string);
 					break;
 				case 'f':
 					printf("%s", separator);
