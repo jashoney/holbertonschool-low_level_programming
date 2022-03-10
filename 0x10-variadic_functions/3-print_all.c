@@ -24,10 +24,12 @@ void print_all(const char * const format, ...)
 				case 'c':
 					printf("%s", separator);
 					printf("%c", va_arg(args, int));
+					separator = ", ";
 					break;
 				case 'i':
 					printf("%s", separator);
 					printf("%d", va_arg(args, int));
+					separator = ", ";
 					break;
 				case 's':
 					printf("%s", separator);
@@ -35,17 +37,19 @@ void print_all(const char * const format, ...)
 					if (string == NULL)
 					{
 						printf("(nil)");
+						separator = ", ";
 						break;
 					}
 					printf("%s", string);
+					separator = ", ";
 					break;
 				case 'f':
 					printf("%s", separator);
 					printf("%f", va_arg(args, double));
+					separator = ", ";
 					break;
 			}
 			i++;
-			separator = ", ";
 		}
 		va_end(args);
 		putchar('\n');
