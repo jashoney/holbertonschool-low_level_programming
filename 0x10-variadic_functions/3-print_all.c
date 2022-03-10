@@ -19,19 +19,22 @@ void print_all(const char * const format, ...)
 		va_start(args, format);
 		while (format[i] != '\0')
 		{
-			printf("%s", separator);
 			switch (format[i])
 			{
 				case 'c':
+					printf("%s", separator);
 					printf("%c", va_arg(args, int));
 					break;
 				case 'i':
+					printf("%s", separator);
 					printf("%d", va_arg(args, int));
 					break;
 				case 's':
+					printf("%s", separator);
 					printf("%s", va_arg(args, char *));
 					break;
 				case 'f':
+					printf("%s", separator);
 					printf("%f", va_arg(args, double));
 					break;
 			}
