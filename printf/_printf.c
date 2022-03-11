@@ -41,42 +41,33 @@ void print_string(va_list *vargs)
 int _printf(const char *format, ...)
 {
 	int count = 0; 					/* we return (count = strlen(format)) */
-	int i = 0, j; 					/* loop variables i and j */
+	int i, j; 					/* loop variables i and j */
 	/* insert data structure here */
 
 	if (format == NULL)				/* test format for NULL */
 		return (0);
+	vi_list vargs;					/* function call argv is called vargs */
+	vi_start (vargs, format);			/* start moving through vargs after format */
 
-	while (format[count] != '\0')			/* find strlen of format*/
-		count++;
-
-	vi_list vargs;					/* function call argv is called s */
-	vi_start (vargs, format);				/* start moving through argv after format */
-
-	while (format[i] != '\0')			/* move across format */
+	for (i = 0, format[i] != '\0', i++)		/* move across format */
 	{	
 		if (format[i] = '%')   			/* format[i] is a % */
 		{
 			if ((format[i + 1] == 'c') || (format[i + 1] == 's'))  /* the next char is also an identifier */
 			{
-				i++;			/* move to next char in format */
-				j = 0;			/* first row of struct */
-				while (mystruct[j].ch != '\0')	/* move downs struct rows */
+				i++;						/* move to next char in format */
+				for (j = 0, mystruct[j].ch != '\0', j++)	/* move downs struct rows */
 				{
-					if (mystruct[j].ch = format[i])	/* directive found */  
-					{
-						mystruct[j].f(&vargs);	/* call function for directive passing address of **argv */
-					}	
+					if (mystruct[j].ch = format[i])		/* directive found */  
+						mystruct[j].f(&vargs);		/* call function for directive passing address of vargs */
 				}
-				j++;			/* move to the next row in structure */
 			}
 			else 
 				_putchar(format[i]);    /* print the % */
 		}
 		else
 			_putchar(format[i]);  		/* print current char in string format */
-		}
-		i++;					/* move to the next char in format */
+		count++;				/* count the chars in format */
 	}
 	vi_end(vargs);					/* free up the va_list */
 	return (count);
