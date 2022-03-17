@@ -4,12 +4,19 @@
 
 void free_list(list_t *head)
 {
-	list_t *current;
+	list_t *current_node, *next_node;
 
-	if (head->next == NULL)
-		current = *head;
-	while (head->next != NULL)
+	if (head == NULL)
+		free(head);
+
+	current_node = head;
+	while (current_node->next != NULL)
 	{
-			
+		next_node = current_node->next;
+		free(current_node->str);
+		free(current_node);
+		current_node = next_node;
 	}
+	free(current_node->str);
+	free(next_node);
 }

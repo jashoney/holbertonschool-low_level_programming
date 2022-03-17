@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * list_length - returns the number of elements in a list_t linked list
+ * list_len - returns the number of elements in a list_t linked list
  * @h: ptr to the list, structure type is list_t
  * Return: the count of nodes in the linked list
  */
