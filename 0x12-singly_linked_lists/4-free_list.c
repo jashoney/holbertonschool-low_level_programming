@@ -22,6 +22,6 @@ void free_list(list_t *head)
 			current_node = next_node;
 		}
 		free(current_node->str);
-		free(next_node);
+		free(current_node);
 	}
 }
