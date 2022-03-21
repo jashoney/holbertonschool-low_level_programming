@@ -5,7 +5,7 @@
 
 /**
  * insert_nodeint_at_index - adds a node at number index nodes in
- * @head: a ptr to the start of a linked list
+ * @h: a ptr to a ptr to the start of a linked list
  * @idx: the node that is returned
  * @v: the integer to be placed inside the new node
  * Return: NULL or  a ptr to the added node
