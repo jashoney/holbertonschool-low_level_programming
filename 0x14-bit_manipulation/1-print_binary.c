@@ -23,18 +23,6 @@ unsigned long power_of_2(int size)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * print_binary - takes an integer and converts it to a binary string
  * @n: the number
  * Return: the binary string representing the number
