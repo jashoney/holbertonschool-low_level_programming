@@ -15,19 +15,13 @@ unsigned int binary_to_uint(const char *b)
 		return (0);
 
 	while (b[count] != '\0')
-		count++;
-
-	if (count == 0)
-		return (0);
-
-	while (b[i] != '\0')
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (b[count] == '0' || b[count] == '1')
+			count++;
+		else
 			return (0);
-		i++;
 	}
 
-	i = 0;
 	while (i < count)
 	{
 		power = power * 2;
