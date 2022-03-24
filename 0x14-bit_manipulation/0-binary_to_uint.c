@@ -9,32 +9,25 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, power = 1, count = 0, i = 0;
+	unsigned int sum = 0, i = 0;
 
 	if (b == NULL)
 		return (0);
 
-	while (b[count] != '\0')
+	while (b[i] == '0' || b[i] == '1')
 	{
-		if (b[count] == '0' || b[count] == '1')
-			count++;
-		else
-			return (0);
-	}
-
-	while (i < count)
-	{
-		power = power * 2;
+		sum = sum << 1;
+		sum = sum + b[i] - '0';
 		i++;
 	}
-	power = power / 2;
 
 	i = 0;
-	while (i < count)
+	while (b[i] != '\0')
 	{
-		sum = sum + power * (b[i] - '0');
-		i++;
-		power = power / 2;
+		if (b[i] == '0' || b[i] == '1')
+			i++;
+		else
+			return (0);
 	}
 	return (sum);
 }
