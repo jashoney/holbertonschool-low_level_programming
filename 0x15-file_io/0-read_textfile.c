@@ -35,13 +35,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	buff[letters] = '\0';
-	close(fd);
-
 	while (buff[i] != '\0')
-	{
-		_putchar(buff[i]);
 		i++;
-	}
+	close(fd);
+	write(STDOUT_FILENO, buff, i);
 	free(buff);
 	return (i);
 }
