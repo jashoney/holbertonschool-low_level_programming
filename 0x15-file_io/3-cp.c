@@ -24,12 +24,8 @@ void error_handler(int error, char *filename)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
-	if (error == 99)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-		exit(99);
-	}
-	exit(100);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+	exit(99);
 }
 /**
  * fd_error - saves space in main
@@ -65,19 +61,22 @@ int main(int argc, char **argv)
 		error_handler(97, "");
 	file1 = argv[1];
 	file2 = argv[2];
-
 	fd1 = open(file1, O_RDONLY);
 	if (fd1 == -1)
 		error_handler(98, file1);
-
-	fd2 = open(file2, O_CREAT | O_TRUNC | O_WRONLY,
-		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (access(file2, F_OK) == 0)
+	{
+		if (access(file2, W_OK) == 1)
+			error_handler(99, file2);
+		fd2 = open(file2, O_TRUNC | O_WRONLY);
+	}
+	else
+		fd2 = open(file2, O_CREAT | O_TRUNC | O_WRONLY, 0644);
 	if (fd2 == -1)
 	{
 		close(fd1);
 		error_handler(99, file2);
 	}
-
 	while (rf)
 	{
 		rf = read(fd1, buffer, limit);
@@ -88,7 +87,6 @@ int main(int argc, char **argv)
 			error_handler(99, file2);
 		count = count + rf;
 	}
-
 	d1 = close(fd1);
 	d2 = close(fd2);
 	if (d1 == -1)
