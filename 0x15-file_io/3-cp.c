@@ -28,21 +28,22 @@ void error_handler(int error, char *filename)
 	exit(99);
 }
 /**
- * fd_error - saves space in main
+ * fd_closer - saves space in main
  * @fd: - 1st or 2nd fd failed to free
- * @fd_value: fd value of failed free
  * Return: is void
  */
 
-void fd_error(int fd, int fd_value)
+int fd_closer(int fd)
 {
-	if (fd == 1)
+	int flag;
+
+	flag = close(fd);
+	if (flag == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_value);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_value);
-	exit(100);
+	return (1);
 }
 
 /**
@@ -54,37 +55,39 @@ void fd_error(int fd, int fd_value)
 
 int main(int argc, char **argv)
 {
-	int fd1, fd2, wf, rf = 1, limit = 1024, count = 0, d1, d2;
+	int fd1, fd2, wf, rf = 1, limit = 1024;
 	char *file1, *file2, *buffer[1024];
 
 	if (argc != 3)
 		error_handler(97, "");
+
 	file1 = argv[1];
 	file2 = argv[2];
+
 	fd1 = open(file1, O_RDONLY);
 	if (fd1 == -1)
 		error_handler(98, file1);
+
 	fd2 = open(file2, O_CREAT | O_TRUNC | O_WRONLY, 0644);
 	if (fd2 == -1)
 	{
-		close(fd1);
+		fd_closer(fd1);
 		error_handler(99, file2);
 	}
+
 	while (rf)
 	{
 		rf = read(fd1, buffer, limit);
 		if (rf == -1)
 			error_handler(98, file1);
+		if (rf == 0)
+			break;
 		wf = write(fd2, buffer, rf);
 		if (wf == -1)
 			error_handler(99, file2);
-		count = count + rf;
 	}
-	d1 = close(fd1);
-	d2 = close(fd2);
-	if (d1 == -1)
-		fd_error(1, fd1);
-	if (d2 == -1)
-		fd_error(2, fd2);
-	return (count);
+
+	fd_closer(fd1);
+	fd_closer(fd2);
+	return (0);
 }
