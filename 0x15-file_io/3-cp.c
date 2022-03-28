@@ -64,14 +64,7 @@ int main(int argc, char **argv)
 	fd1 = open(file1, O_RDONLY);
 	if (fd1 == -1)
 		error_handler(98, file1);
-	if (access(file2, F_OK) == 0)
-	{
-		if (access(file2, W_OK) == 1)
-			error_handler(99, file2);
-		fd2 = open(file2, O_TRUNC | O_WRONLY);
-	}
-	else
-		fd2 = open(file2, O_CREAT | O_TRUNC | O_WRONLY, 0644);
+	fd2 = open(file2, O_CREAT | O_TRUNC | O_WRONLY, 0644);
 	if (fd2 == -1)
 	{
 		close(fd1);
