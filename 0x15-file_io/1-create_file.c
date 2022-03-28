@@ -37,8 +37,8 @@ int create_file(const char *filename, char *text_content)
 		i++;
 
 	wf = write(fd, text_content, i);
+	close(fd);
 	if (wf == -1)
 		return (-1);
-	fd = close(fd);
 	return (1);
 }
