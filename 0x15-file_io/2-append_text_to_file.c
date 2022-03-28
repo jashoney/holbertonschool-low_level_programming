@@ -6,19 +6,6 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * append_text_to_file - creates a file or truncates an existing file
  * @filename: the file
  * @text_content: the text to be used
