@@ -55,6 +55,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		_putchar(buff[i]);
 		i++;
 	}
+	_putchar('\n');
 	free(buff);
 	return (i);
 }
