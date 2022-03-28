@@ -14,7 +14,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, wf, exists, i = 0;
+	int fd, wf, i = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -25,13 +25,13 @@ int create_file(const char *filename, char *text_content)
 	while (text_content[i] != '\0')
 		i++;
 
-	exists = access(filename, F_OK);
-	if (exists)
-		fd = open(filename, O_TRUNC | O_WRONLY);
-	else
-		fd = open(filename, O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
+	fd = open(filename, O_TRUNC | O_WRONLY);
 	if (fd == -1)
-		return (-1);
+	{
+		fd = open(filename, O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
+		if (fd == -1)
+			return (-1);
+	}
 
 	while (text_content[i] != '\0')
 		i++;
