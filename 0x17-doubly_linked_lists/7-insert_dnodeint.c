@@ -33,7 +33,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		count++;
 	}
 
-	if (idx == count)
+	if (count < idx - 1)
+		return (NULL);
+	else if (count == idx - 1)
+		temp->next = new;
+	else
 	{
 		if (prev != NULL)
 		{
@@ -41,7 +45,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			prev->next = new;
 		}
 		new->next = temp;
-		return (new);
 	}
-	return (NULL);
+	return (new);
 }
