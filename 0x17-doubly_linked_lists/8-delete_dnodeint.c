@@ -47,7 +47,6 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 		}
 		else
 			prev->next = NULL;
-		}
 	}
 	free(temp);
 	return (1);
