@@ -1,24 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-/**
- * create_new_node - does what it says
- * @n: value in the node
- * Return: a ptr to the node or NULL
- */
-
-dlistint_t *create_new_node(int n)
-{
-	dlistint_t *new;
-
-	new = malloc(sizeof(*new));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
-}
 
 /**
  * insert_dnodeint_at_index - inserts a node at index
@@ -36,12 +18,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 	if (idx == 0)
-	{
-		new = add_dnodeint(h, n);
-		return (new);
-	}
+		return (add_dnodeint(h, n));
 	temp = *h;
-	new = create_new_node(n);
+	new = malloc(sizeof(*new));
+	new->n = n;
+	new->prev = NULL;
+	new->next = NULL;
 	if (new == NULL)
 		return (NULL);
 	while (temp != NULL && count < idx)
