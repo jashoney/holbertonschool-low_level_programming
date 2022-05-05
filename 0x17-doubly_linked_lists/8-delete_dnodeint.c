@@ -24,7 +24,7 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 		if (temp->next != NULL)
 		{
 			*h = temp->next;
-			temp->next->prev = NULL;
+			(*h)->prev = NULL;
 		}
 		else
 			*h = NULL;
