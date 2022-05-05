@@ -39,16 +39,14 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 		}
 		if (count != idx)
 			return (-1);
-		else
+		if (temp->next != NULL)
 		{
-			if (temp->next != NULL)
-			{
-				next = temp->next;
-				prev->next = next;		
-				next->prev = prev;
-			}
-			else
-				prev->next = NULL;
+			next = temp->next;
+			prev->next = next;
+			next->prev = prev;
+		}
+		else
+			prev->next = NULL;
 		}
 	}
 	free(temp);
