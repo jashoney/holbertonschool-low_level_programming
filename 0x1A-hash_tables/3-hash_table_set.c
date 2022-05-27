@@ -16,11 +16,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL || key == NULL || strlen(key) == 0)
 		return (0);
-	if (key_copy == NULL)
-		return (0);
-	if (value_copy == NULL)
+	if (key_copy == NULL || value_copy == NULL)
 	{
-		free(key_copy);
+		if (key_copy == NULL)
+			free(value_copy);
+		else
+			free(key_copy);
 		return (0);
 	}
 	index = key_index((const unsigned char *)key, size);
